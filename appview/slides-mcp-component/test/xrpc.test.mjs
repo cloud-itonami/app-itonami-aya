@@ -3,7 +3,7 @@ import test from 'node:test';
 import worker from '../src/app.ts';
 
 test('XRPC JSON/authorization preflight does not fall through to assets', async () => {
-  const response = await worker.fetch(new Request('https://slides.example/xrpc/com.etzhayyim.apps.slides.sync', {
+  const response = await worker.fetch(new Request('https://slides.example/xrpc/app.itonami.aya.sync', {
     method: 'OPTIONS', headers: { origin: 'https://client.example', 'access-control-request-method': 'POST', 'access-control-request-headers': 'content-type,authorization' }
   }), { ASSETS: { fetch() { throw new Error('preflight reached assets'); } } });
   assert.equal(response.status, 204);
@@ -20,7 +20,7 @@ test('preflight retains the old generic XRPC route without exposing other paths'
 });
 
 test('malformed JSON is rejected before dispatcher access', async () => {
-  const response = await worker.fetch(new Request('https://slides.example/xrpc/com.etzhayyim.apps.slides.sync', { method: 'POST', body: '{' }), {});
+  const response = await worker.fetch(new Request('https://slides.example/xrpc/app.itonami.aya.sync', { method: 'POST', body: '{' }), {});
   assert.equal(response.status, 400);
   assert.deepEqual(await response.json(), { error: 'InvalidJson' });
 });
@@ -30,7 +30,7 @@ test('POST preserves MCP method, caller authentication and structured result', a
     assert.equal(url, 'https://router.example/message');
     assert.equal(init.headers.get('authorization'), 'Bearer test-caller');
     assert.equal(init.headers.get('host'), null);
-    assert.equal(init.headers.get('x-etzhayyim-xrpc-method'), 'other.method');
+    assert.equal(init.headers.get('x-itonami-xrpc-method'), 'other.method');
     const body = JSON.parse(init.body);
     assert.equal(body.jsonrpc, '2.0');
     assert.equal(body.method, 'tools/call');
@@ -45,7 +45,7 @@ test('POST preserves MCP method, caller authentication and structured result', a
 
 test('MCP errors are not returned as successful XRPC responses', async (t) => {
   t.mock.method(globalThis, 'fetch', async () => Response.json({ error: { message: 'refused' } }));
-  const response = await worker.fetch(new Request('https://slides.example/xrpc/com.etzhayyim.apps.slides.sync', { method: 'POST', body: '{}' }), {});
+  const response = await worker.fetch(new Request('https://slides.example/xrpc/app.itonami.aya.sync', { method: 'POST', body: '{}' }), {});
   assert.equal(response.status, 502);
   assert.equal((await response.json()).error, 'refused');
 });

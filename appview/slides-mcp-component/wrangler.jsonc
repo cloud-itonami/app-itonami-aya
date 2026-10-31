@@ -10,21 +10,21 @@
     "APP_CAPABILITIES": "[\"bpmn-dispatch\",\"oauth-redirect\"]",
     "APP_DESCRIPTION": "Thin edge facade; Google Slides OAuth and sync run in BPMN + Zeebe Python",
     "APP_DISPLAY_NAME": "Google Slides",
-    "APP_EMBED_URL": "https://slides-mcp.etzhayyim.com/?embed=1",
+    "APP_EMBED_URL": "https://aya-mcp.itonami.app/?embed=1",
     "APP_FRAMEWORK": "cljs-reagent-kotoba-ui",
     "APP_NANOID": "slides-mcp",
     "APP_PERFORMER_TYPE": "service",
     "APP_UI_TYPE": "appview",
-    "AGENTGATEWAY_MCP_ROUTER_URL": "https://mcp.etzhayyim.com/xrpc/com.etzhayyim.mcp.message"
+    "AGENTGATEWAY_MCP_ROUTER_URL": "https://mcp.itonami.app/xrpc/app.itonami.mcp.message"
   },
   "routes": [
     {
-      "pattern": "slides-mcp.etzhayyim.com/*",
-      "zone_name": "etzhayyim.com"
+      "pattern": "aya-mcp.itonami.app/*",
+      "zone_name": "itonami.app"
     },
     {
-      "pattern": "slides.etzhayyim.com/*",
-      "zone_name": "etzhayyim.com"
+      "pattern": "aya.itonami.app/*",
+      "zone_name": "itonami.app"
     }
   ],
   "assets": {

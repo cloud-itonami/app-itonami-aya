@@ -4,11 +4,11 @@
 ;; Static app descriptor (port of the `app` object in +page.svelte).
 (def app-info
   {:title "Slides Mcp Component"
-   :project "etzhayyim-project-slides"
+   :project "itonami-aya"
    :name "slides-mcp-component"
    :kind "appview"
    :route-count 0
    :routes []
    :vars []
    :xrpc true
-   :relative-path "60-apps/etzhayyim-project-slides/appview/slides-mcp-component/cljs/src/slides/ui.cljs"})
+   :relative-path "appview/slides-mcp-component/cljs/src/slides/ui.cljs"})
