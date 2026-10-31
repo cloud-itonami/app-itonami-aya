@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "shadow-cljs release app",
-    "test": "node --test ../test/xrpc.test.mjs"
+    "test": "node ../scripts/check-client-runtime.mjs"
   },
   "dependencies": {
     "react": "18.2.0",
