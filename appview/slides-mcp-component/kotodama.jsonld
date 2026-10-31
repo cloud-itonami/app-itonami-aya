@@ -1,6 +1,6 @@
 {
-  "@context": "https://etzhayyim.com/ns/kotodama/v1",
-  "@id": "did:web:slides.etzhayyim.com",
+  "@context": "https://itonami.app/ns/kotodama/v1",
+  "@id": "did:web:aya.itonami.app",
   "name": "slides",
   "nanoid": "slides-mcp",
   "performerType": "service",
@@ -19,14 +19,14 @@
     "isBot": true,
     "agentType": "autonomous",
     "category": "google-workspace",
-    "operator": "etzhayyim.com",
+    "operator": "itonami.app",
     "capabilities": ["bpmn-dispatch", "oauth-redirect"]
   },
   "triggers": {
     "subscribeRepos": {
       "collections": [
-        "com.etzhayyim.apps.slides.account",
-        "com.etzhayyim.apps.slides.syncJob"
+        "app.itonami.aya.account",
+        "app.itonami.aya.syncJob"
       ]
     }
   }
